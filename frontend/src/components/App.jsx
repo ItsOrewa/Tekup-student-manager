@@ -3,12 +3,16 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Grid } from "@material-ui/core";
 import Raiting from "./Raiting"
+import Home from "./Home";
+import Login from "./Login"
+import { Router, Route} from 'react-router-dom';
+import history from '../history';
 
 function App(){
 
     return (
         <div>
-
+        <Router history={history}>
         <Grid container direction="column">
             <Grid item>
                 <Header/>
@@ -16,8 +20,9 @@ function App(){
         <Grid item container>
             <Grid item xs={false} sm={2} />
             <Grid item xs={12} sm={8}>
-
-                    <Raiting/>
+                <Route exact path = '/' component = {localStorage.usertoken ? Home : Login}/>
+                <Route exact path = '/login' component = {Login}/>
+                <Route exact path = '/home' component = {Home}/>
 
             </Grid>
             <Grid item xs={false} sm={2} />
@@ -25,7 +30,7 @@ function App(){
             <Footer/>
         </Grid>
         </Grid>
-
+        </Router>
         </div>
     );
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import {AppBar,Toolbar,Typography,Button} from '@material-ui/core';
 
+
+import {Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -21,16 +23,18 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles();
     
 
-    
+    function Handlelog(event){
+        localStorage.removeItem('usertoken');
+   }
+
     return (<div className={classes.root}>
             <AppBar position="static" style={{ background: '#2E3B55' }}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            
+            Trello
           </Typography>
-              {localStorage.usertoken && <Button className={classes.btn} variant="contained"> sign in</Button>}
-              {!localStorage.usertoken && <Button className={classes.btn} variant="contained"> sign out</Button>}
-             
+              {localStorage.usertoken && <Button className={classes.btn} variant="contained"><Link to='/login' onClick = {Handlelog}>SIGN OUT</Link></Button>}
+              {!localStorage.usertoken && <Button className={classes.btn} variant="contained"><Link to='/login'>SIGN IN</Link></Button>}
         </Toolbar>
       </AppBar>
     </div>);
