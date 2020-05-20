@@ -14,7 +14,7 @@ app.use(
     })
   )
 const safe = 'mongodb://localhost:27017/DataBase'
-const mongoURI = safe
+const mongoURI = 'mongodb+srv://admin-amer:amer25515807@cluster0-iuzbm.mongodb.net/DataBase'
 
 mongoose
   .connect(

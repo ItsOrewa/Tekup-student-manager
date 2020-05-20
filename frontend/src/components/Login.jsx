@@ -1,42 +1,27 @@
 import React , {useState} from "react";
 import axios from 'axios';
 import history from '../history';
+import { useSelector , useDispatch } from "react-redux";
+import {login} from '../actions'
 function Login(){
-    const [err,seterr] = useState("");
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
     const [form, setForm] = useState({
       username: "",
       password: ""
     });
     function handleChange(event) {
         const { name, value } = event.target;
-        setForm(prevForm => {
-          return {
-            ...prevForm,
-            [name]: value
-          };
-        });
+        setForm(prevForm => {return {...prevForm,[name]: value};});
     }
     function log(event){
         event.preventDefault();
-        console.log(form);
-        
-        axios.post("users/login",{username:form.username,password:form.password})
-      .then(res => {
-        console.log(res.data);
-        
-        if(!res.data.error){
-          localStorage.setItem('usertoken', res.data)
-          history.push('/home');
-       }
-       else{
-          seterr(preverr=>{
-            return "Wrong Username/Password";
-          })
-       }
-    })}
+        dispatch(login(form));
+    }
+    if(auth === null)return;
 return (
 
-        <div class="login_box">
+        <div className="login_box">
             
             <br></br>
             <br></br>
@@ -50,7 +35,7 @@ return (
                 
                 <input onClick={log} type="submit" value="login" />
                 <br/>
-                <p style={{color:'yellow' , textAlign:'center'}}>{err}</p>  
+                <p style={{color:'yellow' , textAlign:'center'}}>{auth.autherr ? 'Wrong username/password' : ''}</p>  
                 </form>
             </div>            
         </div>

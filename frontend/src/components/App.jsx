@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Grid } from "@material-ui/core";
-import Raiting from "./Raiting"
+import Raiting from "./Raiting_section/Raiting"
 import Home from "./Home";
 import Login from "./Login"
 import { Router, Route} from 'react-router-dom';
