@@ -3,11 +3,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Grid } from "@material-ui/core";
 import Raiting from "./Raiting_section/Raiting"
-import Home from "./Home";
+import Home from "./Home_section/Home";
 import Login from "./Login"
 import { Router, Route} from 'react-router-dom';
 import history from '../history';
-
+import Cover from './Home_section/Cover'
 function App(){
 
     return (
@@ -16,6 +16,8 @@ function App(){
         <Grid container direction="column">
             <Grid item>
                 <Header/>
+                <Route exact path = '/home' component = {Cover}/>
+
             </Grid>
         <Grid item container>
             <Grid item xs={false} sm={2} />

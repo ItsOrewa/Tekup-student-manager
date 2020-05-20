@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-
+import Cover from './Cover';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -40,8 +40,8 @@ return (
             <CardActionArea>
                 <CardMedia
                 className={classes.media}
-                image={require('../images/Absence.jpg')}
-                title="Contemplative Reptile"
+                image={require('../../images/Absence.jpg')}
+                
                 />
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -62,8 +62,8 @@ return (
         <CardActionArea>
             <CardMedia
             className={classes.media}
-            image={require('../images/Result.jpg')}
-            title="Contemplative Reptile"
+            image={require('../../images/Result.jpg')}
+           
             />
             <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
@@ -84,8 +84,8 @@ return (
         <CardActionArea>
             <CardMedia
             className={classes.media}
-            image={require('../images/links.jpg')}
-            title="Contemplative Reptile"
+            image={require('../../images/links.jpg')}
+           
             />
             <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
@@ -106,8 +106,8 @@ return (
         <CardActionArea>
             <CardMedia
             className={classes.media}
-            image={require('../images/RatingTeacher.jpg')}
-            title="Contemplative Reptile"
+            image={require('../../images/RatingTeacher.jpg')}
+            
             />
             <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
