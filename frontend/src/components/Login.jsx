@@ -1,6 +1,4 @@
 import React , {useState} from "react";
-import axios from 'axios';
-import history from '../history';
 import { useSelector , useDispatch } from "react-redux";
 import {login} from '../actions'
 function Login(){
