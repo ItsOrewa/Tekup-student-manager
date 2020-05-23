@@ -1,61 +1,53 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-  }));
+import Stars from './Stars'
+import Container from '@material-ui/core/Container'
+import Button from '@material-ui/core/Button'
 function Raiting(){
-const classes = useStyles();
-return (
-<div>
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="grouped-native-select">Teachers</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select">
-          <option aria-label="None" value="" />
-          <optgroup label="Teachers">
-            <option value={1}>Option 1</option>
-            <option value={2}>Option 2</option>
-          </optgroup>
-          <optgroup label="Subjects">
-            <option value={3}>Option 3</option>
-            <option value={4}>Option 4</option>
-          </optgroup>
-        </Select>
-      </FormControl>
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="grouped-select">Subjects</InputLabel>
-        <Select defaultValue="" id="grouped-select">
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <ListSubheader>Category 1</ListSubheader>
-          <MenuItem value={1}>Option 1</MenuItem>
-          <MenuItem value={2}>Option 2</MenuItem>
-          <ListSubheader>Category 2</ListSubheader>
-          <MenuItem value={3}>Option 3</MenuItem>
-          <MenuItem value={4}>Option 4</MenuItem>
-        </Select>
-      </FormControl>
-
-        <div class="RaitinBox">
-        
+  return(
+      <div className='RaitinBox'>
+        <Container class='RatingContainer'>
+        <h3>Teacher: bla bla</h3>
+        <h3>Module: bla bla</h3>
+        <br></br>
+        <div className="row">
+          <h5 className="column">Pedagogy </h5>
+          <Stars className="column" key={1} id={1}/>
         </div>
-
-    </div>
-
-  );
+        <div className="row">
+          <h5 className="column">Communication</h5>
+          <Stars className="column" key={2} id={2}/>
+        </div>
+        <div className="row">
+          <h5 className="column">Course quality</h5>
+          <Stars className="column" key={3}  id={3}/>
+        </div>
+        <div className="row">
+          <h5 className="column">Surrounding</h5>
+          <Stars className="column" key={4} id={4}  />
+        </div>
+        <div className="row">
+          <h5 className="column">Test/Ds/Td/Tp quality</h5>
+          <Stars className="column" key={5} id={5} />
+        </div>
+        <div className="row">
+          <h5 className="column">Program objectives</h5>
+          <Stars className="column" key={6}  id={6} />
+        </div> 
+        <div className="row">
+          <h5 className="column">Achievement of learning objectives</h5>
+          <Stars className="column" key={7} id={7} />
+        </div>      
+        <div className="RatingButton">
+        <Button variant="contained" color="primary" disableElevation>
+           Save
+        </Button>
+        <Button variant="contained" color="primary" disableElevation> 
+           Cancel
+        </Button>
+        </div>
+        </Container>
+      </div>
+    )
 }
 
 export default Raiting;
-
-
-
-
