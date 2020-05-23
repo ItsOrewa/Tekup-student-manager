@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
             <AppBar position="static" style={{ background: '#2E3B55' }}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Trello
+            TEKUP STUDENT MANAGER
           </Typography>
               {localStorage.usertoken && <Button className={classes.btn} variant="contained"><Link to='/login' onClick = {Handlelog}>SIGN OUT</Link></Button>}
               {!localStorage.usertoken && <Button className={classes.btn} variant="contained"><Link to='/login'>SIGN IN</Link></Button>}

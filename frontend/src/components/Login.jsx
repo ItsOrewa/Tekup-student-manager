@@ -1,7 +1,8 @@
 import React , {useState} from "react";
 import { useSelector , useDispatch } from "react-redux";
 import {login} from '../actions'
-function Login(){
+import {withRouter}  from 'react-router-dom'
+function Login(props){
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const [form, setForm] = useState({
@@ -14,7 +15,7 @@ function Login(){
     }
     function log(event){
         event.preventDefault();
-        dispatch(login(form));
+        dispatch(login(form,props.history));
     }
     if(auth === null)return;
 return (
@@ -40,4 +41,4 @@ return (
   );
 }
 
-export default Login;
+export default withRouter(Login);

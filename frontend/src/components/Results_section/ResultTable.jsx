@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles({
     table: {
       minWidth: 650,
+      backgroundColor:'rgba(36, 49, 105, 0.336)'
     },
   });
   
@@ -27,10 +28,10 @@ const useStyles = makeStyles({
   function ResultTable(){
     const classes = useStyles();
     return (
-<TableContainer component={Paper} class='Table'>
+<TableContainer component={Paper} >
       <Table className={classes.table} aria-label="caption table">
         <TableHead>
-          <TableRow>
+          <TableRow >
             <TableCell>Module</TableCell>
             <TableCell align="right">DS</TableCell>
             <TableCell align="right">Examen</TableCell>

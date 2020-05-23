@@ -9,14 +9,13 @@ import Absence from "./Absence_section/Absence"
 import TeachersList from "./TeachersList"
 import Links from "./Contacts_section/Links"
 import Result from "./Results_section/Result"
-import { Router, Route} from 'react-router-dom';
-import history from '../history';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Cover from './Home_section/Cover'
 function App(){
 
     return (
         <div>
-        <Router history={history}>
+        <Router>
         <Grid container direction="column">
             <Grid item>
                 <Header/>

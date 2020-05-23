@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import {withRouter}  from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -29,15 +30,18 @@ const useStyles = makeStyles((theme) => ({
   }));
 function Section(props){
     const classes = useStyles();
+    function showsection (){        
+        props.history.push(props.info.path)
+    }
     return (
         <Grid item xs={12} sm={6} >
         <div className={classes.paper}>
             <Card className={classes.Cardroot}>
             <CardActionArea>
                 <CardMedia
+                onClick = {showsection}
                 className={classes.media}
                 image={props.info.img}
-                
                 />
                 <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -54,4 +58,4 @@ function Section(props){
     )
 }
 
-export default Section;
+export default withRouter(Section);

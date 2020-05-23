@@ -1,7 +1,6 @@
 import axios from 'axios';
-import history from '../history';
 
-export const login = (form) => {
+export const login = (form,history) => {
     return async function(dispatch,getState){
         const response = await  axios.post("users/login",{username:form.username,password:form.password});
         if(!response.data.error){
