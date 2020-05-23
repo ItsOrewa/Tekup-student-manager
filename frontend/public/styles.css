@@ -1,7 +1,6 @@
 body {
-    background-color: #1a588f;
-    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-    background-size: cover;
+  background-color: #05258588;
+  background-size: cover;
 }
 
 .login_box {
@@ -12,12 +11,12 @@ body {
     margin-top: 120px;
 }
 .RaitinBox{
-    background-color: rgba(248, 245, 245, 0.192);
+    background-color:  rgba(0, 0, 0, 0.24);
     width: 600px;
     height: 600px;
     margin: auto;
     margin-top: 50px; 
-    border-radius: 30px;
+    border-radius: 20px;
 }
 
 #head1 {
