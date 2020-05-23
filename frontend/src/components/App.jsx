@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Grid } from "@material-ui/core";
-import Raiting from "./Raiting_section/Raiting"
+import Rating from "./Rating_section/Rating"
 import Home from "./Home_section/Home";
 import Login from "./Login"
 import Absence from "./Absence_section/Absence"
@@ -31,7 +31,7 @@ function App(){
                 <Route exact path = '/home' component = {Home}/>
                 <Route exact path = '/absence' component = {Absence}/>
                 <Route exact path = '/links' component = {Links}/>
-                <Route exact path = '/raiting' component = {Raiting}/>
+                <Route exact path = '/rating' component = {Rating}/>
                 <Route exact path = '/result' component = {Result}/>
                 <Route exact path = '/teachers' component = {TeachersList}/>
             </Grid>

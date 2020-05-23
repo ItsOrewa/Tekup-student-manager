@@ -3,7 +3,7 @@ import ResultTable from './ResultTable'
 function Result(){
     return (
     <div>
-        <div class='ResultInfo'>
+        <div className='ResultInfo'>
             <h6>Name: blabla</h6> 
             <h6>Class: blabla</h6>
             <h6>Semester : blabla</h6>
