@@ -14,7 +14,7 @@ import Cover from './Home_section/Cover'
 function App(){
 
     return (
-        <div>
+        <div className = "page-container">
         <Router>
         <Grid container direction="column">
             <Grid item>
@@ -24,7 +24,7 @@ function App(){
             </Grid>
             <Grid item container>
             <Grid item xs={false} sm={2} />
-            <Grid item xs={12} sm={8}>
+            <Grid item xs={12} sm={8} className="content-wrap">
                 <Route exact path = '/' component = {localStorage.usertoken ? Home : Login}/>
                 <Route exact path = '/login' component = {Login}/>
                 <Route exact path = '/home' component = {Home}/>
