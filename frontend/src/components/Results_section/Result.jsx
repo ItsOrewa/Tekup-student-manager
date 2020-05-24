@@ -1,5 +1,7 @@
 import React from "react";
-import ResultTable from './ResultTable'
+import ResultTable from './ResultTable';
+import Button from '@material-ui/core/Button'
+
 function Result(){
     return (
     <div>
@@ -11,6 +13,11 @@ function Result(){
         </div>
         <br></br>
         <ResultTable/>
+        <div className="AbsenceButton">
+            <Button variant="contained" color="primary" disableElevation>
+            Back
+            </Button>
+        </div>  
     </div>
 
     )

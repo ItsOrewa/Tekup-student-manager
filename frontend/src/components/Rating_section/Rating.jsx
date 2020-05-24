@@ -21,12 +21,13 @@ function Rating(){
           <h3>Teacher: {rate.teacher}</h3>
           <h3>Course: {rate.course}</h3>
           <br></br>
-
+          <Container>
           {qualities.map((quality,index)=>{
               return (
                 <Stars  key={index} id={index} quality = {quality}/>
               )
-          })}        
+          })} 
+          </Container>       
           <div className="RatingButton">
           <Button variant="contained" color="primary" disableElevation>
             Save
