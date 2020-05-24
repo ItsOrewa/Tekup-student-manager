@@ -1,8 +1,12 @@
-import React from 'react';
+import React  from 'react';
 import LinksTable from './LinksTable'
 import Button from '@material-ui/core/Button'
+import {withRouter}  from 'react-router-dom'
+function Links(props){
+    function back(){
+        props.history.push('/home')
+    }
 
-function Links(){
     return (
     <div>
         <div className='ResultInfo'>
@@ -11,7 +15,7 @@ function Links(){
         <br></br>
         <LinksTable/>
         <div className="AbsenceButton">
-            <Button variant="contained" color="primary" disableElevation>
+            <Button variant="contained" color="primary" disableElevation onClick = {back}>
             Back
             </Button>
         </div>   
@@ -20,4 +24,4 @@ function Links(){
     ); 
 }
 
-export default Links ;
+export default withRouter(Links) ;

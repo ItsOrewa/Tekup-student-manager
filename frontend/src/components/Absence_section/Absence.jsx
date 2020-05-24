@@ -1,8 +1,13 @@
 import React from 'react';
 import AbsenceTable from './AbsenceTable'
 import Button from '@material-ui/core/Button'
+import {withRouter}  from 'react-router-dom'
 
-function Absence(){
+function Absence(props){
+    function back(){
+        props.history.push('/home')
+    }
+
     return (
     <div>
         <div className='ResultInfo'>
@@ -12,7 +17,7 @@ function Absence(){
         <br></br>
         <AbsenceTable/>
         <div className="AbsenceButton">
-            <Button variant="contained" color="primary" disableElevation>
+            <Button variant="contained" color="primary" disableElevation onClick = {back}>
             Back
             </Button>
         </div>   
@@ -21,4 +26,4 @@ function Absence(){
     ); 
 }
 
-export default Absence ;
+export default withRouter(Absence) ;
