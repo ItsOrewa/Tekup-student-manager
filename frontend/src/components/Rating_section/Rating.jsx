@@ -2,30 +2,46 @@ import React from 'react';
 import Stars from './Stars'
 import Container from '@material-ui/core/Container'
 import Button from '@material-ui/core/Button'
+import TeacherList from './TeachersList'
+import { useSelector , useDispatch } from "react-redux";
+import Zoom from '@material-ui/core/Zoom';
 function Rating(){
+  const rate = useSelector(state => state.rate);
+  const dispatch = useDispatch();
   const qualities = ['Pedagogy','Communication','Course quality','Surrounding','Test/Ds/Td/Tp quality','Program objectives','Achievement of learning objectives']
   return(
-      <div className='RaitinBox'>
-        <Container className='RatingContainer'>
-        <h3>Teacher: bla bla</h3>
-        <h3>Module: bla bla</h3>
-        <br></br>
+      <div>
+        <TeacherList />
+        
+        { rate &&  
 
-        {qualities.map((quality,index)=>{
-            return (
-              <Stars  key={index} id={index} quality = {quality}/>
-            )
-        })}        
-        <div className="RatingButton">
-        <Button variant="contained" color="primary" disableElevation>
-           Save
-        </Button>
-        <Button variant="contained" color="primary" disableElevation> 
-           Cancel
-        </Button>
+          <Zoom in = {true}>
+          <div className='RaitinBox'>
+          <Container className='RatingContainer'>
+          <h3>Teacher: {rate.teacher}</h3>
+          <h3>Course: {rate.course}</h3>
+          <br></br>
+
+          {qualities.map((quality,index)=>{
+              return (
+                <Stars  key={index} id={index} quality = {quality}/>
+              )
+          })}        
+          <div className="RatingButton">
+          <Button variant="contained" color="primary" disableElevation>
+            Save
+          </Button>
+          <Button variant="contained" color="primary" disableElevation style={{marginLeft:'0.5rem'}}> 
+            Cancel
+          </Button>
+          </div>
+          </Container>
         </div>
-        </Container>
+
+          </Zoom>
+           }
       </div>
+      
     )
 }
 

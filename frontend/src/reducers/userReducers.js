@@ -5,3 +5,10 @@ export const auth =  (state = {},action) => {
         default : return state
     }
 };
+
+export const rate = (state = null,action) =>{
+    switch(action.type){
+        case 'RATE' : return action.payload
+        default : return state
+    }
+}

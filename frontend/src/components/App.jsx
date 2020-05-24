@@ -6,7 +6,7 @@ import Rating from "./Rating_section/Rating"
 import Home from "./Home_section/Home";
 import Login from "./Login"
 import Absence from "./Absence_section/Absence"
-import TeachersList from "./TeachersList"
+import TeachersList from "./Rating_section/TeachersList"
 import Links from "./Contacts_section/Links"
 import Result from "./Results_section/Result"
 import {BrowserRouter as Router, Route} from 'react-router-dom';

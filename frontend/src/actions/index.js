@@ -21,3 +21,10 @@ export const logout = () => {
         payload:{IsLoggedIn:false,autherr:false}
     }
 };
+
+export const rate_teacher = (teacher_course) => {
+    return {
+        type : 'RATE',
+        payload:{teacher:teacher_course.name , course : teacher_course.course}
+    }
+}
