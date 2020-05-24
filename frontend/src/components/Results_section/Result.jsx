@@ -17,7 +17,7 @@ function Result(props){
         <br></br>
         <ResultTable/>
         <div className="AbsenceButton">
-            <Button variant="contained" color="primary" disableElevation onClick = {back}>
+            <Button variant="contained" color="primary" disableElevation onClick = {back} style={{background:'rgb(22, 32, 49)' }}>
             Back
             </Button>
         </div>  

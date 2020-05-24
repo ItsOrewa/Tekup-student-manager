@@ -43,11 +43,11 @@ function Section(props){
                 className={classes.media}
                 image={props.info.img}
                 />
-                <CardContent>
+                <CardContent style={{background:'rgb(22, 32, 49)',color:'white'}}>
                 <Typography gutterBottom variant="h5" component="h2">
                     {props.info.title}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography variant="body2" color="textSecondary" component="p" style={{color:'white'}}>
                     {props.info.content} 
                 </Typography>
                 </CardContent>

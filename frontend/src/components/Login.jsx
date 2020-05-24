@@ -32,7 +32,7 @@ return (
                 <p className="txt">Password</p>
                 <input type="password" name="password" value={form.password} placeholder="Your Password" onChange={handleChange} />
                 
-                <input onClick={log} type="submit" value="login" />
+                <input onClick={log} type="submit" value="LOGIN"  style={{background:'rgb(22, 32, 49)'}}/>
                 <br/>
                 <p style={{color:'yellow' , textAlign:'center'}}>{auth.autherr ? 'Wrong username/password' : ''}</p>  
                 </form>

@@ -37,10 +37,10 @@ function Rating(props){
           })} 
           </Container>       
           <div className="RatingButton">
-          <Button variant="contained" color="primary" disableElevation>
+          <Button variant="contained" color="primary" disableElevation style={{background:'rgb(22, 32, 49)'}}>
             Save
           </Button>
-          <Button variant="contained" color="primary" disableElevation style={{marginLeft:'0.5rem'}}> 
+          <Button variant="contained" color="primary" disableElevation style={{marginLeft:'0.5rem',background:'rgb(22, 32, 49)'}}> 
             Cancel
           </Button>
           </div>
@@ -50,7 +50,7 @@ function Rating(props){
           </Zoom>
            }
             <div className="RButton">
-            <Button variant="contained" color="primary" disableElevation onClick = {back}>
+            <Button variant="contained" color="primary" disableElevation onClick = {back} style={{background:'rgb(22, 32, 49)'}}>
                Back
             </Button>
         </div> 

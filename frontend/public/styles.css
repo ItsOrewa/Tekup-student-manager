@@ -1,5 +1,5 @@
 body {
-  background-color: #05258588;
+  background-color: #F2F3F5;
   background-size: cover;
   position: relative;
   min-height: 100vh;
@@ -15,12 +15,12 @@ body {
 }
 .RaitinBox{
     background-color:  rgba(0, 0, 0, 0.24);
-    width: 600px;
-    height: 600px;
+    width: 560px;
+    height: 580px;
     margin: auto;
     margin-top: 4rem; 
     margin-bottom: 4rem;
-    border-radius: 20px;
+    
 }
 
 #head1 {
@@ -64,7 +64,7 @@ input:focus{
 input[type=submit] {
     width: 100%;
     background-color: #3452a5;
-    color: aliceblue;
+    color: rgba(240, 248, 255, 0.178);
     font-size: 25px;
     border: none;
     height: 40px;
@@ -101,7 +101,7 @@ footer {
     width: 100%;
     height: 8rem;
     color: white;
-    background-color: rgb(22, 32, 49);
+    background-color:rgb(22, 32, 49);
   }
 
   .Cover img {
@@ -121,6 +121,8 @@ footer {
   padding-top: 5%; 
   padding-left: 100%;
   padding-bottom: 5%;
+  
+  
 }
 
 .RatingContainer{
