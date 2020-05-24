@@ -5,13 +5,20 @@ import Button from '@material-ui/core/Button'
 import TeacherList from './TeachersList'
 import { useSelector , useDispatch } from "react-redux";
 import Zoom from '@material-ui/core/Zoom';
-function Rating(){
+import {withRouter}  from 'react-router-dom'
+
+function Rating(props){
   const rate = useSelector(state => state.rate);
   const dispatch = useDispatch();
   const qualities = ['Pedagogy','Communication','Course quality','Surrounding','Test/Ds/Td/Tp quality','Program objectives','Achievement of learning objectives']
+  function back(){
+      props.history.push('/home')
+  }
   return(
       <div>
-        <div className='Rposition'>
+        <div className={!rate ? 'Rposition' : 'nothing'}>
+        <TeacherList />
+        <TeacherList />
         <TeacherList />
         </div>
         { rate &&  
@@ -43,8 +50,8 @@ function Rating(){
           </Zoom>
            }
             <div className="RButton">
-            <Button variant="contained" color="primary" disableElevation>
-            Back
+            <Button variant="contained" color="primary" disableElevation onClick = {back}>
+               Back
             </Button>
         </div> 
       </div>
@@ -52,4 +59,4 @@ function Rating(){
     )
 }
 
-export default Rating;
+export default withRouter(Rating);

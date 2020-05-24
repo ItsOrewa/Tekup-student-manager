@@ -37,9 +37,9 @@ function Section(props){
         <Grid item xs={12} sm={6} >
         <div className={classes.paper}>
             <Card className={classes.Cardroot}>
-            <CardActionArea>
+            <CardActionArea  onClick = {showsection}>
                 <CardMedia
-                onClick = {showsection}
+               
                 className={classes.media}
                 image={props.info.img}
                 />
