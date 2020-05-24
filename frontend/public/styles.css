@@ -7,14 +7,14 @@ body {
 }
 
 .login_box {
-    background-color: rgba(0, 0, 0, 0.47);
+    background-color:#2E3B55 ;
     width: 350px;
     height: 350px;
     margin: auto;
     margin-top: 80px;
 }
 .RaitinBox{
-    background-color:  rgba(0, 0, 0, 0.24);
+    background-color:  #336699;
     width: 560px;
     height: 580px;
     margin: auto;
