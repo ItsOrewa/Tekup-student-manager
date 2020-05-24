@@ -11,8 +11,9 @@ function Rating(){
   const qualities = ['Pedagogy','Communication','Course quality','Surrounding','Test/Ds/Td/Tp quality','Program objectives','Achievement of learning objectives']
   return(
       <div>
+        <div className='Rposition'>
         <TeacherList />
-        
+        </div>
         { rate &&  
 
           <Zoom in = {true}>
@@ -41,6 +42,11 @@ function Rating(){
 
           </Zoom>
            }
+            <div className="RButton">
+            <Button variant="contained" color="primary" disableElevation>
+            Back
+            </Button>
+        </div> 
       </div>
       
     )
