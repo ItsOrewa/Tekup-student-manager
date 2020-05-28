@@ -11,6 +11,7 @@ import Links from "./Contacts_section/Links"
 import Result from "./Results_section/Result"
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Cover from './Home_section/Cover'
+import ScrollToTop from './ScrollToTop';
 function App(){
 
     return (
@@ -25,6 +26,7 @@ function App(){
             <Grid item container>
             <Grid item xs={false} sm={2} />
             <Grid item xs={12} sm={8} className="content-wrap">
+                <ScrollToTop />
                 <Route exact path = '/' component = {localStorage.usertoken ? Home : Login}/>
                 <Route exact path = '/login' component = {Login}/>
                 <Route exact path = '/home' component = {Home}/>
