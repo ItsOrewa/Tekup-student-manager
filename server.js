@@ -13,6 +13,7 @@ app.use(
       extended: false
     })
   )
+app.use(express.static("public"));
 const safe = 'mongodb://localhost:27017/DataBase'
 const mongoURI = 'mongodb+srv://admin-amer:amer25515807@cluster0-iuzbm.mongodb.net/DataBase'
 
@@ -25,7 +26,9 @@ mongoose
   .catch(err => console.log(err))
 
   var Users = require('./routes/Users')
+  var Landing = require('./routes/Landing');
   app.use('/users', Users);
+  app.use('/',Landing);
 
   app.listen(port, function() {
     console.log('Server is running on port: ' + port)
