@@ -13,5 +13,21 @@ landing.get('/events',function(req,res){
     res.render('landing_section/Event.ejs')
 })
 
+landing.get('/home',function(req,res){
+    res.render('student_landing/Home.ejs')
+})
+landing.get('/absence',function(req,res){
+    res.render('student_landing/Absence.ejs')
+})
+landing.get('/rating',function(req,res){
+    res.render('student_landing/RatingTeachers.ejs')
+})
+landing.get('/result',function(req,res){
+    res.render('student_landing/Result.ejs')
+})
+landing.get('/usefullinks',function(req,res){
+    res.render('student_landing/UsefulLinks.ejs')
+})
+
 
 module.exports = landing
