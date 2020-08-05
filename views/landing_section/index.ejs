@@ -192,15 +192,20 @@
       </div>
       <!--Body-->
       <div class="modal-body text-center mb-1">
-        <div class="md-form ml-0 mr-0">
-          <input type="text" for="form28" class="form-control form-control-sm validate ml-0" placeholder='Login'>
-          <input type="password" type="text" for="form29" class="form-control form-control-sm validate ml-0" placeholder='Password'>
-          
-        </div>
+        <form method="POST" action="/users/login">
+            <div class="md-form ml-0 mr-0">
+           
+                <input type="text" name="username" for="form28" class="form-control form-control-sm validate ml-0" placeholder='Login'>
+                <input type="password" name="password" type="text" for="form29" class="form-control form-control-sm validate ml-0" placeholder='Password'>
+                
+              </div>
+      
+              <div class="text-center mt-4">
+                <button class="btn header-btn">Login </button>
+              </div>
 
-        <div class="text-center mt-4">
-          <button class="btn header-btn">Login </button>
-        </div>
+        </form>
+        
       </div>
 
     </div>

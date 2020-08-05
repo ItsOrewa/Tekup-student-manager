@@ -42,6 +42,7 @@ users.post('/register', (req, res) => {
 })
 
 users.post('/login', (req, res) => {
+  console.log(req.body.username);
   User.findOne({
     username: req.body.username
   })
@@ -56,14 +57,22 @@ users.post('/login', (req, res) => {
           let token = jwt.sign(payload, process.env.SECRET_KEY, {
             expiresIn: 1440
           })
-          res.send(token)
+          //const decoded = jwt.verify(token,process.env.SECRET_KEY)
+          //console.log(decoded);
+          res.cookie('token', token);
+          res.redirect('/home')
+          //res.render('student_landing/Home.ejs')
+          //res.send(token)
         } else {
           console.log('wrong password ??');
-          
-          res.json({ error: 'User does not exist' })
+            res.redirect('/')
+          //res.render('landing_section/index.ejs');
+          //res.json({ error: 'User does not exist' })
         }
       } else {
-        res.json({ error: 'User does not exist' })
+        res.redirect('/')
+        //res.render('landing_section/index.ejs');
+        //res.json({ error: 'User does not exist' })
       }
     })
     .catch(err => {
