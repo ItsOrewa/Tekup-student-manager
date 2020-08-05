@@ -41,7 +41,7 @@ users.post('/register', (req, res) => {
     })
 })
 
-users.get('/logout',(req,res) => {
+users.post('/logout',(req,res) => {
   res.clearCookie('token')
   res.redirect('/')
 })
