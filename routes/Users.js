@@ -42,12 +42,11 @@ users.post('/register', (req, res) => {
 })
 
 users.get('/logout',(req,res) => {
-  res.cookie('token',undefined)
+  res.clearCookie('token')
   res.redirect('/')
 })
 
 users.post('/login', (req, res) => {
-  console.log(req.body.username);
   User.findOne({
     username: req.body.username
   })
