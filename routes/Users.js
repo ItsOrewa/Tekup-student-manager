@@ -41,6 +41,11 @@ users.post('/register', (req, res) => {
     })
 })
 
+users.get('/logout',(req,res) => {
+  res.cookie('token',undefined)
+  res.redirect('/')
+})
+
 users.post('/login', (req, res) => {
   console.log(req.body.username);
   User.findOne({
@@ -60,6 +65,7 @@ users.post('/login', (req, res) => {
           //const decoded = jwt.verify(token,process.env.SECRET_KEY)
           //console.log(decoded);
           res.cookie('token', token);
+          
           res.redirect('/home')
           //res.render('student_landing/Home.ejs')
           //res.send(token)
