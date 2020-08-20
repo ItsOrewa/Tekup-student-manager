@@ -9,11 +9,15 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    default: 'Not provided'
   },
   password: {
     type: String,
     required: true
+  },
+  class: {
+    type: mongoose.Schema.Types.ObjectId, ref: 'Class', autopopulate: true,
+    default : 'Not provided'
   }
 })
 
