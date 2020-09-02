@@ -30,5 +30,8 @@ landing.get('/usefullinks',auth,async (req,res)=>{
     res.render('student_landing/UsefulLinks.ejs')
 })
 
+landing.get('/schedule',auth,async (req,res)=>{
+    res.render('student_landing/Schedule.ejs')
+})
 
 module.exports = landing
