@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+  return sequelize.define('material_rents', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -16,55 +16,60 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     },
-    email: {
-      type: DataTypes.STRING(191),
-      allowNull: false,
-      unique: true
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true
     },
-    password: {
-      type: DataTypes.STRING(191),
+    rate_date: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    request_date: {
+      type: DataTypes.DATE,
       allowNull: false
     },
-    name: {
-      type: DataTypes.STRING(191),
+    start_rate_date: {
+      type: DataTypes.DATE,
       allowNull: false
     },
-    lastname: {
-      type: DataTypes.STRING(191),
+    end_rate_date: {
+      type: DataTypes.DATE,
       allowNull: false
     },
-    type: {
-      type: DataTypes.STRING(191),
-      allowNull: false
-    },
-    birthday: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    image_id: {
+    user_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
       references: {
         model: {
-          tableName: 'documents',
+          tableName: 'users',
         },
         key: 'id'
       }
     },
-    remember_token: {
-      type: DataTypes.STRING(100),
+    material_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: true,
+      references: {
+        model: {
+          tableName: 'materials',
+        },
+        key: 'id'
+      }
+    },
+    release_date: {
+      type: DataTypes.DATE,
       allowNull: true
     },
-    gender: {
-      type: DataTypes.ENUM('Male','Female','Androgyne'),
-      allowNull: false
-    },
-    cin: {
+    status: {
       type: DataTypes.STRING(191),
+      allowNull: true
+    },
+    release_notes: {
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'users'
+    tableName: 'material_rents'
   });
 };

@@ -1,57 +1,26 @@
 const express = require('express')
-const users = express.Router()
+const User = express.Router()
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+const { user } = require("../models");
 
-const User = require('../models/users')
-users.use(cors())
+User.use(cors())
 
 process.env.SECRET_KEY = 'secret'
 
-users.post('/register', (req, res) => {
-  const today = new Date()
-  const userData = {
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password
-  }
-
-  User.findOne({
-    username: req.body.username
-  })
-    .then(user => {
-      if (!user) {
-        bcrypt.hash(req.body.password, 10, (err, hash) => {
-          userData.password = hash
-          User.create(userData)
-            .then(user => {
-              res.json({ status: user.username + ' Registered!' })
-            })
-            .catch(err => {
-              res.send('error: ' + err)
-            })
-        })
-      } else {
-        res.json({ error: 'User already exists' })
-      }
-    })
-    .catch(err => {
-      res.send('error: ' + err)
-    })
-})
-
-users.post('/logout',(req,res) => {
+User.post('/logout',(req,res) => {
   res.clearCookie('token')
   res.redirect('/')
 })
 
-users.post('/login', (req, res) => {
-  User.findOne({
-    username: req.body.username
+User.post('/login', (req, res) => {
+  user.findOne({
+    where : {email: req.body.username}
   })
     .then(user => {
       if (user) {
+        console.log(user);
         if (bcrypt.compareSync(req.body.password, user.password)) {
           const payload = {
             _id: user._id,
@@ -61,23 +30,18 @@ users.post('/login', (req, res) => {
           let token = jwt.sign(payload, process.env.SECRET_KEY, {
             expiresIn: 1440
           })
-          //const decoded = jwt.verify(token,process.env.SECRET_KEY)
-          //console.log(decoded);
+          
           res.cookie('token', token);
           
           res.redirect('/home')
-          //res.render('student_landing/Home.ejs')
-          //res.send(token)
+          
         } else {
           console.log('wrong password ??');
             res.redirect('/')
-          //res.render('landing_section/index.ejs');
-          //res.json({ error: 'User does not exist' })
+          
         }
       } else {
         res.redirect('/')
-        //res.render('landing_section/index.ejs');
-        //res.json({ error: 'User does not exist' })
       }
     })
     .catch(err => {
@@ -86,4 +50,4 @@ users.post('/login', (req, res) => {
 })
 
 
-module.exports = users
+module.exports = User

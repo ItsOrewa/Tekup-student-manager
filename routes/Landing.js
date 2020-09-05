@@ -2,7 +2,7 @@ const express = require('express')
 const landing = express.Router()
 const cors = require('cors')
 const auth = require('../middlewares/auth');
-
+const jwt_decode = require('jwt-decode')
 
 landing.get('/',auth,async (req, res) =>{
     res.render('student_landing/Home.ejs');
@@ -24,6 +24,16 @@ landing.get('/rating',auth,async (req,res)=>{
     res.render('student_landing/RatingTeachers.ejs')
 })
 landing.get('/result',auth,async (req,res)=>{
+    const cookies = req.headers.cookie.split(' ')
+    var token = ""
+    for(let i = 0;i<cookies.length;i++){
+      var wa = cookies[i].split('=');
+      if(wa[0] === 'token'){
+        token = wa[1];
+      }
+    }
+    const decoded = jwt_decode(token);
+    console.log(decoded);
     res.render('student_landing/Result.ejs')
 })
 landing.get('/usefullinks',auth,async (req,res)=>{

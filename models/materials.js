@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+  return sequelize.define('materials', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -16,55 +16,38 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     },
-    email: {
+    description: {
       type: DataTypes.STRING(191),
-      allowNull: false,
-      unique: true
-    },
-    password: {
-      type: DataTypes.STRING(191),
-      allowNull: false
+      allowNull: true
     },
     name: {
       type: DataTypes.STRING(191),
       allowNull: false
     },
-    lastname: {
+    identifier: {
       type: DataTypes.STRING(191),
+      allowNull: true
+    },
+    rentable: {
+      type: DataTypes.INTEGER(1),
       allowNull: false
     },
-    type: {
+    status: {
       type: DataTypes.STRING(191),
-      allowNull: false
+      allowNull: true
     },
-    birthday: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    image_id: {
+    occupant_request_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
       references: {
         model: {
-          tableName: 'documents',
+          tableName: 'material_rents',
         },
         key: 'id'
       }
-    },
-    remember_token: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    gender: {
-      type: DataTypes.ENUM('Male','Female','Androgyne'),
-      allowNull: false
-    },
-    cin: {
-      type: DataTypes.STRING(191),
-      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'users'
+    tableName: 'materials'
   });
 };

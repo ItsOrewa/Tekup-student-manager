@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+  return sequelize.define('mark_transactions', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -16,55 +16,32 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     },
-    email: {
-      type: DataTypes.STRING(191),
-      allowNull: false,
-      unique: true
-    },
-    password: {
-      type: DataTypes.STRING(191),
-      allowNull: false
-    },
-    name: {
-      type: DataTypes.STRING(191),
-      allowNull: false
-    },
-    lastname: {
-      type: DataTypes.STRING(191),
-      allowNull: false
-    },
-    type: {
-      type: DataTypes.STRING(191),
-      allowNull: false
-    },
-    birthday: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    image_id: {
+    author_user_id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
-      allowNull: true,
-      references: {
-        model: {
-          tableName: 'documents',
-        },
-        key: 'id'
-      }
-    },
-    remember_token: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    gender: {
-      type: DataTypes.ENUM('Male','Female','Androgyne'),
       allowNull: false
     },
-    cin: {
+    author_fullname: {
       type: DataTypes.STRING(191),
-      allowNull: true
+      allowNull: false
+    },
+    class_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: false
+    },
+    class_name: {
+      type: DataTypes.STRING(191),
+      allowNull: false
+    },
+    course_plan_id: {
+      type: DataTypes.INTEGER(10).UNSIGNED,
+      allowNull: false
+    },
+    course_name: {
+      type: DataTypes.STRING(191),
+      allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'users'
+    tableName: 'mark_transactions'
   });
 };
