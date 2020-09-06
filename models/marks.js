@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DOUBLE,
       allowNull: false
     },
-    course_plan_id: {
+    coursePlanId: {field: 'course_plan_id',
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
       references: {
@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    mark_coefficient_id: {
+    markCoefficientId: {field : 'mark_coefficient_id',
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: true,
       references: {

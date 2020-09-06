@@ -107,31 +107,19 @@
                 <th scope="col">Tp</th>
                 <th scope="col">CC</th>
                 <th scope="col">Examen</th>
-
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">Math</th>
-                <td>4.5</td>
-                <td>6</td>
-                <td>14</td>
-                <td>4</td>
+                <% for ( let [key,value] of coursesMarks) { %>
+              <tr> 
+                    <th scope="row"><%= key %></th>
+                    <td> <%= value['DS']%> </td>
+                    <td> <%= value['TP']%> </td>
+                    <td> <%= value['CC']%> </td>
+                    <td> <%= value['Examen']%> </td>
               </tr>
-              <tr>
-                <th scope="row">Project</th>
-                <td>9</td>
-                <td>8</td>
-                <td>7</td>
-                <td>14</td>
-              </tr>
-              <tr>
-                <th scope="row">English</th>
-                <td>4</td>
-                <td>13</td>
-                <td>6</td>
-                <td>10</td>
-              </tr>
+              <% } %>
+             
             </tbody>  
        
           </table>

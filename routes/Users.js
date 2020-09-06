@@ -20,11 +20,13 @@ User.post('/login', (req, res) => {
   })
     .then(user => {
       if (user) {
-        console.log(user);
+        //console.log(user.dataValues);
         if (bcrypt.compareSync(req.body.password, user.password)) {
           const payload = {
-            _id: user._id,
-            username: user.username,
+            id: user.id,
+            name: user.name,
+            lastname:user.lastname,
+            cin:user.cin,
             email: user.email
           }
           let token = jwt.sign(payload, process.env.SECRET_KEY, {

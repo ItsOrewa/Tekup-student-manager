@@ -2,8 +2,10 @@ const express = require('express')
 const landing = express.Router()
 const cors = require('cors')
 const auth = require('../middlewares/auth');
+const getmarks = require('../middlewares/getmarks');
 const jwt_decode = require('jwt-decode')
 
+const { student,mark,course_plan,course,mark_coefficient } = require("../models");
 landing.get('/',auth,async (req, res) =>{
     res.render('student_landing/Home.ejs');
 })
@@ -15,7 +17,7 @@ landing.get('/events',function(req,res){
 })
 
 landing.get('/home',auth,async (req,res)=>{
-    res.render('student_landing/Home.ejs')
+    res.render('student_landing/Home.ejs',{user:req.user})
 })
 landing.get('/absence',auth,async (req,res)=>{
     res.render('student_landing/Absence.ejs')
@@ -23,18 +25,9 @@ landing.get('/absence',auth,async (req,res)=>{
 landing.get('/rating',auth,async (req,res)=>{
     res.render('student_landing/RatingTeachers.ejs')
 })
-landing.get('/result',auth,async (req,res)=>{
-    const cookies = req.headers.cookie.split(' ')
-    var token = ""
-    for(let i = 0;i<cookies.length;i++){
-      var wa = cookies[i].split('=');
-      if(wa[0] === 'token'){
-        token = wa[1];
-      }
-    }
-    const decoded = jwt_decode(token);
-    console.log(decoded);
-    res.render('student_landing/Result.ejs')
+landing.get('/result',auth,getmarks,async (req,res)=>{
+    const coursesMarks = req.coursesMarks
+    res.render('student_landing/Result.ejs',{coursesMarks:coursesMarks})
 })
 landing.get('/usefullinks',auth,async (req,res)=>{
     res.render('student_landing/UsefulLinks.ejs')

@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    course_id: {
+    courseId: {field:'course_id',
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       references: {
