@@ -3,9 +3,10 @@ const landing = express.Router()
 const cors = require('cors')
 const auth = require('../middlewares/auth');
 const getmarks = require('../middlewares/getmarks');
+const getcourses = require('../middlewares/getcourses');
+
 const jwt_decode = require('jwt-decode')
 
-const { student,mark,course_plan,course,mark_coefficient } = require("../models");
 landing.get('/',auth,async (req, res) =>{
     res.render('student_landing/Home.ejs');
 })
@@ -25,7 +26,7 @@ landing.get('/absence',auth,async (req,res)=>{
 landing.get('/rating',auth,async (req,res)=>{
     res.render('student_landing/RatingTeachers.ejs')
 })
-landing.get('/result',auth,getmarks,async (req,res)=>{
+landing.get('/result',auth,getcourses,getmarks,async (req,res)=>{
     const coursesMarks = req.coursesMarks
     res.render('student_landing/Result.ejs',{coursesMarks:coursesMarks})
 })

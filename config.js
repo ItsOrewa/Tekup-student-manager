@@ -16,10 +16,14 @@ async function auth() {
       course_plan,
       course,
       mark_coefficient,
+      branch_level_plan,
+      branch_level,
     } = require("./models");
     mark.belongsTo(course_plan);
     course_plan.belongsTo(course)
     mark.belongsTo(mark_coefficient);
+    course_plan.belongsTo(branch_level_plan)
+    branch_level_plan.belongsTo(branch_level)
     await sequelize.sync({ logging: false });
     console.log("Connection has been established successfully.");
   } catch (error) {

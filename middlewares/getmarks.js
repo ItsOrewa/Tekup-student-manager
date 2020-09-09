@@ -4,6 +4,7 @@ const {
   course_plan,
   course,
   mark_coefficient,
+  assignment_student
 } = require("../models");
 
 module.exports = async (req, res, next) => {
@@ -34,25 +35,20 @@ module.exports = async (req, res, next) => {
       ],
     });
 
-    var coursesMarks = new Map();
+    var coursesMarks = req.courses;
     marks.map(async (_mark_e, i) => {
       if (_mark_e && _mark_e.course_plan && _mark_e.course_plan.course) {
         let _course = _mark_e.course_plan.course;
 
-        if (!coursesMarks.has(_course.name)) {
-          coursesMarks.set(_course.name, {
-            DS: "?",
-            Tp: "?",
-            CC: "?",
-            Examen: "?",
-          });
+        if (coursesMarks.has(_course.name)) {
+          let coef = _mark_e.mark_coefficient;
+
+          let curr = coursesMarks.get(_course.name);
+          curr[coef.label] = _mark_e.mark;
+          coursesMarks.set(_course.name, curr);
         }
 
-        let coef = _mark_e.mark_coefficient;
-
-        let curr = coursesMarks.get(_course.name);
-        curr[coef.label] = _mark_e.mark;
-        coursesMarks.set(_course.name, curr);
+        
       }
     });
     req.coursesMarks = coursesMarks;

@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     },
-    branch_level_id: {
+    branchLevelId: {field : 'branch_level_id',
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       references: {
