@@ -5,7 +5,8 @@ const auth = require('../middlewares/auth');
 const getmarks = require('../middlewares/getmarks');
 const getcourses = require('../middlewares/getcourses');
 
-const jwt_decode = require('jwt-decode')
+const jwt_decode = require('jwt-decode');
+const getabsence = require('../middlewares/getabsence');
 
 landing.get('/',auth,async (req, res) =>{
     res.render('student_landing/Home.ejs');
@@ -14,8 +15,9 @@ landing.get('/',auth,async (req, res) =>{
 landing.get('/home',auth,async (req,res)=>{
     res.render('student_landing/Home.ejs',{user:req.user})
 })
-landing.get('/absence',auth,async (req,res)=>{
-    res.render('student_landing/Absence.ejs')
+landing.get('/absence',auth,getcourses,getabsence,async (req,res)=>{
+    coursesAbsence = req.coursesAbsence
+    res.render('student_landing/Absence.ejs',{coursesAbsence:coursesAbsence})
 })
 landing.get('/rating',auth,async (req,res)=>{
     res.render('student_landing/RatingTeachers.ejs')

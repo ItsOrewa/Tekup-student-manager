@@ -5,7 +5,8 @@ const {
     branch_level_plan,
     branch_level,
     classe,
-    course
+    course,
+    period
   } = require("../models");
 module.exports = async(req, res, next) => {
   try {
@@ -27,9 +28,14 @@ module.exports = async(req, res, next) => {
             model: branch_level_plan,
             nested: true,
             as: "branch_level_plan",
+            include : {
+              model : period,
+              nested : true,
+              as : 'period'
+            }
           },
       });
-
+     
      
      const classs = await classe.findOne({
          where :  {id:classid}
@@ -37,7 +43,7 @@ module.exports = async(req, res, next) => {
 
      const branch_level_id_of_student_class = classs.branch_level_id;
      course_plans.map(async (course_plann, i) => {
-        if(course_plann.branch_level_plan.branchLevelId === branch_level_id_of_student_class){
+        if(course_plann.branch_level_plan.branchLevelId === branch_level_id_of_student_class && course_plann.branch_level_plan.period.name==='Semestre 2'){
             course_plan_course_id = course_plann.courseId;
             coursee = await course.findOne({
                 where : {id : course_plan_course_id}
@@ -46,7 +52,8 @@ module.exports = async(req, res, next) => {
                                 Tp: "",
                                 CC: "",
                                 Examen: "",
-                                Projet:""});
+                                Projet:"",
+                              absence:0});
         }
 
         // kill me :)

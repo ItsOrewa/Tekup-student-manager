@@ -11,19 +11,24 @@ async function auth() {
     await sequelize.authenticate();
     
     const {
-      student,
       mark,
       course_plan,
       course,
       mark_coefficient,
       branch_level_plan,
       branch_level,
+      course_session,
+      attendance_record,
+      period
     } = require("./models");
     mark.belongsTo(course_plan);
     course_plan.belongsTo(course)
     mark.belongsTo(mark_coefficient);
     course_plan.belongsTo(branch_level_plan)
     branch_level_plan.belongsTo(branch_level)
+    attendance_record.belongsTo(course_session)
+    course_session.belongsTo(course_plan)
+    branch_level_plan.belongsTo(period)
     await sequelize.sync({ logging: false });
     console.log("Connection has been established successfully.");
   } catch (error) {

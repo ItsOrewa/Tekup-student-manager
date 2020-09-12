@@ -99,27 +99,21 @@
     <section class="team-area pt-180 pb-100">
 
             <div class="container">
-            <h1>Classe : </h1>
+            
             <table class="table">
                 <thead style="color:  #331391;">
                   <tr>
-                    <th scope="col">Math</th>
-                    <th scope="col">Python</th>
-                    <th scope="col">big data</th>
-                    <th scope="col">English</th>
-                    <th scope="col">Frensh</th>
-    
+                    <th scope="col">Course</th>
+                     <th scope="col">Absence</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>15</td>
-                    <td>4.5</td>
-                    <td>6</td>
-                    <td>14</td>
-                    <td>4</td>
-                  </tr>
-                  
+                    <% for ( let [key,value] of coursesAbsence) { %>
+                        <tr> 
+                              <th scope="row"><%= key %></th>
+                              <td> <%= value['absence']%> </td>
+                        </tr>
+                        <% } %>
                 </tbody>  
            
               </table>

@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    period_id: {
+    periodId: { field :'period_id',
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       references: {
