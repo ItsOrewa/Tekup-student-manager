@@ -8,6 +8,8 @@ const {
     course,
     period
   } = require("../models");
+const {sequelize} = require('../config');
+const { QueryTypes } = require('sequelize');
 module.exports = async(req, res, next) => {
   try {
     var id = req.user.id;
@@ -16,9 +18,14 @@ module.exports = async(req, res, next) => {
         where: { user_id: id },
     });
     var courses = new Map();
-    var assignment = await assignment_student.findOne({
-        where : {student_id : s.id}
-    })
+    var fetch =  await sequelize.query(
+      'SELECT class_id, id FROM assignment_students WHERE student_id = $student_id ORDER BY id DESC LIMIT 0, 1',
+      {
+        bind : {student_id : s.id },
+        type: QueryTypes.SELECT
+      }
+    );
+    var assignment = fetch[0];  
     
     const classid = assignment.class_id
 
@@ -35,15 +42,18 @@ module.exports = async(req, res, next) => {
             }
           },
       });
+
      
      
      const classs = await classe.findOne({
          where :  {id:classid}
      })
 
+
      const branch_level_id_of_student_class = classs.branch_level_id;
      course_plans.map(async (course_plann, i) => {
-        if(course_plann.branch_level_plan.branchLevelId === branch_level_id_of_student_class && course_plann.branch_level_plan.period.name==='Semestre 2'){
+        if(course_plann.branch_level_plan.branchLevelId === branch_level_id_of_student_class
+           && course_plann.branch_level_plan.period.name === 'Semester 1'){
             course_plan_course_id = course_plann.courseId;
             coursee = await course.findOne({
                 where : {id : course_plan_course_id}
