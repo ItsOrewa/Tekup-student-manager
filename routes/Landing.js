@@ -26,8 +26,8 @@ landing.get('/result',auth,getcourses,getmarks,async (req,res)=>{
     const coursesMarks = req.coursesMarks
     res.render('student_landing/Result.ejs',{coursesMarks:coursesMarks})
 })
-landing.get('/usefullinks',auth,async (req,res)=>{
-    res.render('student_landing/UsefulLinks.ejs')
+landing.get('/complain',auth,async (req,res)=>{
+    res.render('student_landing/Complain.ejs')
 })
 
 landing.get('/schedule',auth,async (req,res)=>{
